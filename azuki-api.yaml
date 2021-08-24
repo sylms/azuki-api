@@ -112,6 +112,13 @@ components:
           items:
             type: integer
             example: "[2]"
+        term:
+          type:
+            - array
+            - "null"
+          items:
+            type: integer
+            example: "[2]"
         period:
           type: array
           items:
