@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: sylms-api
-  version: '0.1'
+  version: "0.1"
   summary: sylms azuki api
 servers: []
 paths:
@@ -10,12 +10,12 @@ paths:
       summary: /course
       tags: []
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/course'
+                $ref: "#/components/schemas/course"
           headers: {}
       operationId: get-course
       parameters:
@@ -39,7 +39,7 @@ paths:
             example: course_name_filter_type=and
           in: query
           name: course_name_filter_type
-          description: '`course_name` の各単語をどのように繋げて検索するか。'
+          description: "`course_name` の各単語をどのように繋げて検索するか。"
         - schema:
             type: string
             enum:
@@ -48,7 +48,7 @@ paths:
             example: course_overview_filter_type=and
           in: query
           name: course_overview_filter_type
-          description: '`course_overview` の各単語をどのように繋げて検索するか。'
+          description: "`course_overview` の各単語をどのように繋げて検索するか。"
         - schema:
             type: string
             enum:
@@ -72,23 +72,23 @@ components:
           course_number: GB13312
           course_name: 情報特別演習I
           instructional_type: 2
-          credits: '2.0'
+          credits: "2.0"
           standard_registration_year: null
           term: null
           period: null
           classroom: null
           instructor: null
-          course_overview: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
+          course_overview: "受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。"
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
           application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
           alt_course_name: Special Exercise in Information Science I
           course_code: GB13312
           course_code_name: 情報特別演習I
-          csv_updated_at: '2021-03-23T11:43:50+09:00'
+          csv_updated_at: "2021-03-23T11:43:50+09:00"
           year: 2021
-          created_at: '2021-08-24T00:42:18.517476+09:00'
-          updated_at: '2021-08-24T00:42:18.517476+09:00'
+          created_at: "2021-08-24T00:42:18.517476+09:00"
+          updated_at: "2021-08-24T00:42:18.517476+09:00"
       properties:
         id:
           type: integer
@@ -104,12 +104,12 @@ components:
           example: 2
         credits:
           type: string
-          example: '2.0'
+          example: "2.0"
         standard_registration_year:
           type: array
           items:
             type: integer
-            example: '[2]'
+            example: "[2]"
         period:
           type: array
           items:
@@ -118,7 +118,7 @@ components:
         classroom:
           type:
             - string
-            - 'null'
+            - "null"
         instructor:
           type: array
           items:
@@ -126,12 +126,12 @@ components:
         course_overview:
           type:
             - string
-            - 'null'
-          example: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
+            - "null"
+          example: "受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。"
         remarks:
           type:
             - string
-            - 'null'
+            - "null"
           example: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
         credited_auditors:
           type: integer
@@ -139,34 +139,34 @@ components:
         application_conditions:
           type:
             - string
-            - 'null'
+            - "null"
           example: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
         alt_course_name:
           type:
             - string
-            - 'null'
+            - "null"
           example: Special Exercise in Information Science I
         course_code:
           type:
             - string
-            - 'null'
+            - "null"
           example: GB13312
         course_code_name:
           type:
             - string
-            - 'null'
+            - "null"
           example: 情報特別演習I
         csv_updated_at:
           type: string
-          example: '2021-03-23 11:43:50+09'
+          example: "2021-03-23 11:43:50+09"
         year:
           type: integer
           example: 2021
         created_at:
           type: string
-          example: '2021-08-24 00:42:18.517476+09'
+          example: "2021-08-24 00:42:18.517476+09"
         updated_at:
           type: string
-          example: '2021-08-24 00:42:18.517476+09'
+          example: "2021-08-24 00:42:18.517476+09"
   parameters: {}
   responses: {}
