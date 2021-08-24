@@ -59,7 +59,9 @@ paths:
           name: filter_type
           description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
       description: |
-        科目を検索します。例えば、`course_name` に「情報」と指定した場合、科目名に「情報」を含む科目の情報を返します。
+        科目を検索します。
+
+        例えば、`course_name` に「情報」と指定した場合、科目名に「情報」を含む科目の情報を返します。
         `course_name` と `course_overview` のどちらかはクエリにつける必要があります。
 components:
   schemas:
