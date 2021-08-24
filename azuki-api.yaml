@@ -95,23 +95,29 @@ components:
         id:
           type: integer
           example: 101
+          description: "通し番号である。"
         course_number:
           type: string
           example: GB13312
+          description: "科目番号である。"
         course_name:
           type: string
           example: 情報特別演習I
+          description: "科目名である。"
         instructional_type:
           type: number
           example: 2
+          description: "授業方法である。値は https://www.tsukuba.ac.jp/education/ug-courses-openclass/2021/pdf/1.pdf#page=2 を参照すること。"
         credits:
           type: string
           example: "2.0"
+          description: "単位数である。KdB のデータをそのまま保持しており「-」が含まれることがある。"
         standard_registration_year:
           type: array
           items:
             type: integer
             example: "[2]"
+          description: "標準履修年次である。KdB のデータをほぼそのまま保持しており「?」が含まれることがある。"
         term:
           type:
             - array
@@ -119,63 +125,101 @@ components:
           items:
             type: integer
             example: "[2]"
+          description: |
+            開講時期である。数値と具体的な時期の対応は以下の通りである。
+
+            春A = 1
+
+            春B = 2
+
+            春C = 3
+
+            秋A = 4
+
+            秋B = 5
+
+            秋C = 6
+
+            夏季休業中 = 7
+
+            春季休業中 = 8
+
+            通年 = 9
+
+            春学期 = 10
+
+            秋学期 = 11
         period:
           type: array
           items:
             type: string
             example: 随時
+          description: "曜時限である。"
         classroom:
           type:
             - string
             - "null"
+          description: "教室である。"
         instructor:
           type: array
           items:
             type: string
+          description: "担当教員である。"
         course_overview:
           type:
             - string
             - "null"
           example: "受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。"
+          description: "授業概要である。"
         remarks:
           type:
             - string
             - "null"
           example: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
+          description: "備考である。"
         credited_auditors:
           type: integer
           example: 0
+          description: "科目等履修生申請可否である。対応は、「×」は 0、「△」は 1、空は 2 となっている。"
         application_conditions:
           type:
             - string
             - "null"
           example: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
+          description: "申請条件である。"
         alt_course_name:
           type:
             - string
             - "null"
           example: Special Exercise in Information Science I
+          description: "英語(日本語)科目名である。"
         course_code:
           type:
             - string
             - "null"
           example: GB13312
+          description: "科目コードである。"
         course_code_name:
           type:
             - string
             - "null"
           example: 情報特別演習I
+          description: "要件科目名である。"
         csv_updated_at:
           type: string
           example: "2021-03-23 11:43:50+09"
+          description: "KdB からエクスポートした CSV ファイルに記載されている「データ更新日」である。"
         year:
           type: integer
           example: 2021
+          description: "対象年度である。"
         created_at:
           type: string
           example: "2021-08-24 00:42:18.517476+09"
+          description: "azuki が参照する DB 上のデータの作成日時である。"
         updated_at:
           type: string
           example: "2021-08-24 00:42:18.517476+09"
+          description: "azuki が参照する DB 上のデータの更新日時である。"
   parameters: {}
   responses: {}
