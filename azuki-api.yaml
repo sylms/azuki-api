@@ -23,13 +23,13 @@ paths:
       parameters:
         - schema:
             type: string
-            example: course_name="情報 生物"
+            example: "情報 生物"
           in: query
           name: course_name
           description: 科目名。半角・全角スペース区切りで単語分割。
         - schema:
             type: string
-            example: course_overview="情報 生物"
+            example: "情報 生物"
           in: query
           name: course_overview
           description: 科目概要。半角・全角スペース区切りで単語分割。
@@ -38,7 +38,7 @@ paths:
             enum:
               - and
               - or
-            example: course_name_filter_type=and
+            example: and
           in: query
           name: course_name_filter_type
           description: "`course_name` の各単語をどのように繋げて検索するか。"
@@ -47,7 +47,7 @@ paths:
             enum:
               - and
               - or
-            example: course_overview_filter_type=and
+            example: and
           in: query
           name: course_overview_filter_type
           description: "`course_overview` の各単語をどのように繋げて検索するか。"
@@ -56,7 +56,7 @@ paths:
             enum:
               - and
               - or
-            example: filter_type=and
+            example: and
           in: query
           name: filter_type
           description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
