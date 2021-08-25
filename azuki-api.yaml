@@ -41,7 +41,7 @@ paths:
             example: and
           in: query
           name: course_name_filter_type
-          description: "`course_name` の各単語をどのように繋げて検索するか。"
+          description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
         - schema:
             type: string
             enum:
@@ -50,7 +50,7 @@ paths:
             example: and
           in: query
           name: course_overview_filter_type
-          description: "`course_overview` の各単語をどのように繋げて検索するか。"
+          description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
         - schema:
             type: string
             enum:
