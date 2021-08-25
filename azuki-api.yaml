@@ -17,6 +17,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/course"
           headers: {}
+        "400":
+          description: Bad Request
       operationId: get-course
       parameters:
         - schema:
