@@ -60,6 +60,20 @@ paths:
           in: query
           name: filter_type
           description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
+        - schema:
+            type: integer
+            example: 10
+            default: 100
+          in: query
+          name: limit
+          description: 取得する最大件数
+        - schema:
+            type: integer
+            example: 10
+            default: 0
+          in: query
+          name: offset
+          description: スキップする件数
       description: |
         科目を検索します。
 
