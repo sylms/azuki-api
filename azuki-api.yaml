@@ -8,7 +8,7 @@ paths:
   /course:
     get:
       summary: /course
-      tags: []
+      tags: ["course"]
       responses:
         "200":
           description: OK
