@@ -28,15 +28,51 @@ paths:
           application/json:
             schema:
               type: object
-              properties:  
+              properties:
+                course_number:
+                  type: string
+                  example: "GA119"
+                  description: 科目番号
                 course_name:
                   type: string
                   example: "情報 生物"
                   description: 科目名。半角・全角スペース区切りで単語分割。
+                instructional_type:
+                  type: integer
+                  example: 1
+                  description: 講義形式。複数検索
+                credits:
+                  type: string
+                  example: "2.0"
+                  description: 単位数
+                standard_registration_year:
+                  type: integer
+                  example: 3
+                  description: 標準履修年次
+                term:
+                  type: string
+                  example: "春A 春B"
+                  description: 開講時期。半角・全角スペース区切りで単語分割。
+                period:
+                  type: string
+                  example: "月1, 月2"
+                  description: 開講曜日時間。半角・全角スペース区切りで単語分割。
+                classroom:
+                  type: string
+                  example: "3A2"
+                  description: 教室名。半角・全角スペース区切りで単語分割。先頭一致
+                instructor:
+                  type: string
+                  example: "山田"
+                  description: 担当教員名。半角・全角スペース区切りで単語分割。
                 course_overview:
                   type: string
                   example: "情報 生物"
                   description: 科目概要。半角・全角スペース区切りで単語分割。
+                remarks:
+                  type: string
+                  example: "オンデマンド"
+                  description: 備考。半角・全角スペース区切りで単語分割。
                 course_name_filter_type:
                   type: string
                   enum:
