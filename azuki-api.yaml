@@ -35,7 +35,7 @@ paths:
                   description: 科目番号
                 course_name:
                   type: string
-                  example: "情報 生物"
+                  example: "情報 特別 演習"
                   description: 科目名。半角・全角スペース区切りで単語分割。
                 instructional_type:
                   type: integer
@@ -67,7 +67,7 @@ paths:
                   description: 担当教員名。半角・全角スペース区切りで単語分割。
                 course_overview:
                   type: string
-                  example: "情報 生物"
+                  example: "受講生 解法"
                   description: 科目概要。半角・全角スペース区切りで単語分割。
                 remarks:
                   type: string
@@ -96,12 +96,12 @@ paths:
                   description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
                 limit:
                   type: integer
-                  example: 10
+                  example: 20
                   default: 100
                   description: 取得する最大件数
                 offset:
                   type: integer
-                  example: 10
+                  example: 0
                   default: 0
                   description: スキップする件数
       description: |
@@ -237,26 +237,71 @@ components:
           example: "2021-08-24 00:42:18.517476+09"
           description: "azuki が参照する DB 上のデータの更新日時である。"
       example:
-        - id: 18080
+        - id: 18043
           course_number: GB13312
           course_name: 情報特別演習I
           instructional_type: 2
-          credits: "2.0"
-          standard_registration_year: null
-          term: null
-          period: null
+          credits: 2.0
+          standard_registration_year: [
+              2
+          ]
+          term: [
+              9
+          ]
+          period: [
+              随時
+          ]
           classroom: null
-          instructor: null
-          course_overview: "受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。"
+          instructor: [
+              多田野,
+              保國,
+              面 ,
+              他,
+              ""
+          ]
+          course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
           application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
           alt_course_name: Special Exercise in Information Science I
           course_code: GB13312
           course_code_name: 情報特別演習I
-          csv_updated_at: "2021-03-23T11:43:50+09:00"
+          csv_updated_at: 2021-02-19T01:08:57+09:00
           year: 2021
-          created_at: "2021-08-24T00:42:18.517476+09:00"
-          updated_at: "2021-08-24T00:42:18.517476+09:00"
+          created_at: 2021-10-11T17:24:36.647253+09:00
+          updated_at: 2021-10-11T17:24:36.647253+09:00
+        - id: 18044
+          course_number: GB13322
+          course_name: 情報特別演習II
+          instructional_type: 2
+          credits: 2.0
+          standard_registration_year: [
+              3
+          ]
+          term: [
+              9
+          ]
+          period: [
+              随時
+          ]
+          classroom: null
+          instructor: [
+              多田野,
+              保國,
+              面 ,
+              他,
+              ""
+          ]
+          course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
+          remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
+          credited_auditors: 0
+          application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
+          alt_course_name: Special Exercise in Information Science II
+          course_code: GB13322
+          course_code_name: 情報特別演習II
+          csv_updated_at: 2021-02-19T01:09:26+09:00
+          year: 2021
+          created_at: 2021-10-11T17:24:36.647253+09:00
+          updated_at: 2021-10-11T17:24:36.647253+09:00
   parameters: {}
   responses: {}
