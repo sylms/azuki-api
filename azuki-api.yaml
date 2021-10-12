@@ -6,7 +6,7 @@ info:
 servers: []
 paths:
   /course:
-    get:
+    post:
       summary: /course
       tags: ["course"]
       responses:
@@ -23,60 +23,51 @@ paths:
         "400":
           description: Bad Request
       operationId: get-course
-      parameters:
-        - schema:
-            type: string
-            example: "情報 生物"
-          in: query
-          name: course_name
-          description: 科目名。半角・全角スペース区切りで単語分割。
-        - schema:
-            type: string
-            example: "情報 生物"
-          in: query
-          name: course_overview
-          description: 科目概要。半角・全角スペース区切りで単語分割。
-        - schema:
-            type: string
-            enum:
-              - and
-              - or
-            example: and
-          in: query
-          name: course_name_filter_type
-          description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
-        - schema:
-            type: string
-            enum:
-              - and
-              - or
-            example: and
-          in: query
-          name: course_overview_filter_type
-          description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
-        - schema:
-            type: string
-            enum:
-              - and
-              - or
-            example: and
-          in: query
-          name: filter_type
-          description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
-        - schema:
-            type: integer
-            example: 10
-            default: 100
-          in: query
-          name: limit
-          description: 取得する最大件数
-        - schema:
-            type: integer
-            example: 10
-            default: 0
-          in: query
-          name: offset
-          description: スキップする件数
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:  
+                course_name:
+                  type: string
+                  example: "情報 生物"
+                  description: 科目名。半角・全角スペース区切りで単語分割。
+                course_overview:
+                  type: string
+                  example: "情報 生物"
+                  description: 科目概要。半角・全角スペース区切りで単語分割。
+                course_name_filter_type:
+                  type: string
+                  enum:
+                    - and
+                    - or
+                  example: and
+                  description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
+                course_overview_filter_type:
+                  type: string
+                  enum:
+                    - and
+                    - or
+                  example: and
+                  description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
+                filter_type:
+                  type: string
+                  enum:
+                    - and
+                    - or
+                  example: and
+                  description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
+                limit:
+                  type: integer
+                  example: 10
+                  default: 100
+                  description: 取得する最大件数
+                offset:
+                  type: integer
+                  example: 10
+                  default: 0
+                  description: スキップする件数
       description: |
         科目を検索します。
 
