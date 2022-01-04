@@ -27,83 +27,35 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                course_number:
-                  type: string
-                  example: "GA119"
-                  description: 科目番号
-                course_name:
-                  type: string
-                  example: "情報 特別 演習"
-                  description: 科目名。半角・全角スペース区切りで単語分割。
-                instructional_type:
-                  type: integer
-                  example: 1
-                  description: 講義形式。複数検索
-                credits:
-                  type: string
-                  example: "2.0"
-                  description: 単位数
-                standard_registration_year:
-                  type: integer
-                  example: 3
-                  description: 標準履修年次
-                term:
-                  type: string
-                  example: "春A 春B"
-                  description: 開講時期。半角・全角スペース区切りで単語分割。
-                period:
-                  type: string
-                  example: "月1, 月2"
-                  description: 開講曜日時間。半角・全角スペース区切りで単語分割。
-                classroom:
-                  type: string
-                  example: "3A2"
-                  description: 教室名。半角・全角スペース区切りで単語分割。先頭一致
-                instructor:
-                  type: string
-                  example: "山田"
-                  description: 担当教員名。半角・全角スペース区切りで単語分割。
-                course_overview:
-                  type: string
-                  example: "受講生 解法"
-                  description: 科目概要。半角・全角スペース区切りで単語分割。
-                remarks:
-                  type: string
-                  example: "オンデマンド"
-                  description: 備考。半角・全角スペース区切りで単語分割。
-                course_name_filter_type:
-                  type: string
-                  enum:
-                    - and
-                    - or
-                  example: and
-                  description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
-                course_overview_filter_type:
-                  type: string
-                  enum:
-                    - and
-                    - or
-                  example: and
-                  description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
-                filter_type:
-                  type: string
-                  enum:
-                    - and
-                    - or
-                  example: and
-                  description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
-                limit:
-                  type: integer
-                  example: 20
-                  default: 100
-                  description: 取得する最大件数
-                offset:
-                  type: integer
-                  example: 0
-                  default: 0
-                  description: スキップする件数
+              $ref: "#/components/schemas/req"
+      description: |
+        科目を検索します。
+
+        例えば、`course_name` に「情報」と指定した場合、科目名に「情報」を含む科目の情報を返します。
+        `course_name` と `course_overview` のどちらかはクエリにつける必要があります。
+  /facet:
+    post:
+      summary: /facet
+      tags: ["facet"]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                title: facets
+                items:
+                  $ref: "#/components/schemas/facet"
+          headers: {}
+        "400":
+          description: Bad Request
+      operationId: get-facet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/req"
       description: |
         科目を検索します。
 
@@ -242,23 +194,11 @@ components:
           course_name: 情報特別演習I
           instructional_type: 2
           credits: 2.0
-          standard_registration_year: [
-              2
-          ]
-          term: [
-              9
-          ]
-          period: [
-              随時
-          ]
+          standard_registration_year: [2]
+          term: [9]
+          period: [随時]
           classroom: null
-          instructor: [
-              多田野,
-              保國,
-              面 ,
-              他,
-              ""
-          ]
+          instructor: [多田野, 保國, 面, 他, ""]
           course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
@@ -275,23 +215,11 @@ components:
           course_name: 情報特別演習II
           instructional_type: 2
           credits: 2.0
-          standard_registration_year: [
-              3
-          ]
-          term: [
-              9
-          ]
-          period: [
-              随時
-          ]
+          standard_registration_year: [3]
+          term: [9]
+          period: [随時]
           classroom: null
-          instructor: [
-              多田野,
-              保國,
-              面 ,
-              他,
-              ""
-          ]
+          instructor: [多田野, 保國, 面, 他, ""]
           course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
@@ -303,5 +231,138 @@ components:
           year: 2021
           created_at: 2021-10-11T17:24:36.647253+09:00
           updated_at: 2021-10-11T17:24:36.647253+09:00
+    facet:
+      title: facet
+      type: object
+      # required:
+      #   - "term_facet"
+      properties:
+        term_facet:
+          description: "開講時期ごとの件数"
+          # required:
+          #   - "1"
+          #   - "2"
+          #   - "3"
+          #   - "4"
+          #   - "5"
+          #   - "6"
+          #   - "7"
+          #   - "8"
+          #   - "9"
+          #   - "10"
+          #   - "11"
+          properties:
+            1:
+              type: "number"
+              example: 4894
+            2:
+              type: "number"
+              example: 5000
+            3:
+              type: "number"
+              example: 2692
+            4:
+              type: "number"
+              example: 5002
+            5:
+              type: "number"
+              example: 5057
+            6:
+              type: "number"
+              example: 2689
+            7:
+              type: "number"
+              example: 387
+            8:
+              type: "number"
+              example: 132
+            9:
+              type: "number"
+              example: 2651
+            10:
+              type: "number"
+              example: 91
+            11:
+              type: "number"
+              example: 69
+          type: "object"
+    req:
+      type: object
+      properties:
+        course_number:
+          type: string
+          example: "GA119"
+          description: 科目番号
+        course_name:
+          type: string
+          example: "情報 特別 演習"
+          description: 科目名。半角・全角スペース区切りで単語分割。
+        instructional_type:
+          type: integer
+          example: 1
+          description: 講義形式。複数検索
+        credits:
+          type: string
+          example: "2.0"
+          description: 単位数
+        standard_registration_year:
+          type: integer
+          example: 3
+          description: 標準履修年次
+        term:
+          type: string
+          example: "春A 春B"
+          description: 開講時期。半角・全角スペース区切りで単語分割。
+        period:
+          type: string
+          example: "月1, 月2"
+          description: 開講曜日時間。半角・全角スペース区切りで単語分割。
+        classroom:
+          type: string
+          example: "3A2"
+          description: 教室名。半角・全角スペース区切りで単語分割。先頭一致
+        instructor:
+          type: string
+          example: "山田"
+          description: 担当教員名。半角・全角スペース区切りで単語分割。
+        course_overview:
+          type: string
+          example: "受講生 解法"
+          description: 科目概要。半角・全角スペース区切りで単語分割。
+        remarks:
+          type: string
+          example: "オンデマンド"
+          description: 備考。半角・全角スペース区切りで単語分割。
+        course_name_filter_type:
+          type: string
+          enum:
+            - and
+            - or
+          example: and
+          description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
+        course_overview_filter_type:
+          type: string
+          enum:
+            - and
+            - or
+          example: and
+          description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
+        filter_type:
+          type: string
+          enum:
+            - and
+            - or
+          example: and
+          description: 各要素のどのように繋げて検索するか。現在は、何と指定しようが、AND で結ばれて検索される。
+        limit:
+          type: integer
+          example: 20
+          default: 100
+          description: 取得する最大件数
+        offset:
+          type: integer
+          example: 0
+          default: 0
+          description: スキップする件数
   parameters: {}
   responses: {}
