@@ -43,10 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                title: facets
-                items:
-                  $ref: "#/components/schemas/facet"
+                $ref: "#/components/schemas/facet"
           headers: {}
         "400":
           description: Bad Request
