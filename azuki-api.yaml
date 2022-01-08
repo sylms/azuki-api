@@ -1,16 +1,17 @@
 openapi: 3.0.3
 info:
   title: azuki-api
-  version: "0.1"
+  version: '0.1'
   description: github.com/sylms/azuki api document
 servers: []
 paths:
   /course:
     post:
       summary: /course
-      tags: ["course"]
+      tags:
+        - course
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -18,16 +19,16 @@ paths:
                 type: array
                 title: courses
                 items:
-                  $ref: "#/components/schemas/course"
+                  $ref: '#/components/schemas/course'
           headers: {}
-        "400":
+        '400':
           description: Bad Request
       operationId: get-course
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/req"
+              $ref: '#/components/schemas/req'
       description: |
         科目を検索します。
 
@@ -36,23 +37,24 @@ paths:
   /facet:
     post:
       summary: /facet
-      tags: ["facet"]
+      tags:
+        - facet
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/facet"
+                $ref: '#/components/schemas/facet'
           headers: {}
-        "400":
+        '400':
           description: Bad Request
       operationId: get-facet
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/req"
+              $ref: '#/components/schemas/req'
       description: |
         科目を検索します。
 
@@ -61,25 +63,26 @@ paths:
   /csv:
     post:
       summary: /csv
-      tags: ["csv"]
+      tags:
+        - csv
       responses:
-        "200":
+        '200':
           description: OK
           content:
             text/csv:
               schema:
                 type: string
           headers: {}
-        "400":
+        '400':
           description: Bad Request
       operationId: get-csv
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/req"
+              $ref: '#/components/schemas/req'
       description: |
-                CSV をダウンロード
+        CSV をダウンロード
 components:
   schemas:
     course:
@@ -89,35 +92,35 @@ components:
         id:
           type: integer
           example: 101
-          description: "通し番号である。"
+          description: 通し番号である。
         course_number:
           type: string
           example: GB13312
-          description: "科目番号である。"
+          description: 科目番号である。
         course_name:
           type: string
           example: 情報特別演習I
-          description: "科目名である。"
+          description: 科目名である。
         instructional_type:
           type: number
           example: 2
-          description: "授業方法である。値は https://www.tsukuba.ac.jp/education/ug-courses-openclass/2021/pdf/1.pdf#page=2 を参照すること。"
+          description: '授業方法である。値は https://www.tsukuba.ac.jp/education/ug-courses-openclass/2021/pdf/1.pdf#page=2 を参照すること。'
         credits:
           type: string
-          example: "2.0"
-          description: "単位数である。KdB のデータをそのまま保持しており「-」が含まれることがある。"
+          example: '2.0'
+          description: 単位数である。KdB のデータをそのまま保持しており「-」が含まれることがある。
         standard_registration_year:
           type: array
           items:
             type: integer
-            example: "[2]"
-          description: "標準履修年次である。KdB のデータをほぼそのまま保持しており「?」が含まれることがある。"
+            example: '[2]'
+          description: 標準履修年次である。KdB のデータをほぼそのまま保持しており「?」が含まれることがある。
         term:
           type: array
           nullable: true
           items:
             type: integer
-            example: "[2]"
+            example: '[2]'
           description: |
             開講時期である。数値と具体的な時期の対応は以下の通りである。
 
@@ -147,174 +150,176 @@ components:
           items:
             type: string
             example: 随時
-          description: "曜時限である。"
+          description: 曜時限である。
         classroom:
           type: string
           nullable: true
-          description: "教室である。"
+          description: 教室である。
         instructor:
           type: array
           items:
             type: string
-          description: "担当教員である。"
+          description: 担当教員である。
         course_overview:
           type: string
           nullable: true
-          example: "受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。"
-          description: "授業概要である。"
+          example: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
+          description: 授業概要である。
         remarks:
           type: string
           nullable: true
           example: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
-          description: "備考である。"
+          description: 備考である。
         credited_auditors:
           type: integer
           example: 0
-          description: "科目等履修生申請可否である。対応は、「×」は 0、「△」は 1、空は 2 となっている。"
+          description: 科目等履修生申請可否である。対応は、「×」は 0、「△」は 1、空は 2 となっている。
         application_conditions:
           type: string
           nullable: true
           example: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
-          description: "申請条件である。"
+          description: 申請条件である。
         alt_course_name:
           type: string
           nullable: true
           example: Special Exercise in Information Science I
-          description: "英語(日本語)科目名である。"
+          description: 英語(日本語)科目名である。
         course_code:
           type: string
           nullable: true
           example: GB13312
-          description: "科目コードである。"
+          description: 科目コードである。
         course_code_name:
           type: string
           nullable: true
           example: 情報特別演習I
-          description: "要件科目名である。"
+          description: 要件科目名である。
         csv_updated_at:
           type: string
-          example: "2021-03-23 11:43:50+09"
-          description: "KdB からエクスポートした CSV ファイルに記載されている「データ更新日」である。"
+          example: '2021-03-23 11:43:50+09'
+          description: KdB からエクスポートした CSV ファイルに記載されている「データ更新日」である。
         year:
           type: integer
           example: 2021
-          description: "対象年度である。"
+          description: 対象年度である。
         created_at:
           type: string
-          example: "2021-08-24 00:42:18.517476+09"
-          description: "azuki が参照する DB 上のデータの作成日時である。"
+          example: '2021-08-24 00:42:18.517476+09'
+          description: azuki が参照する DB 上のデータの作成日時である。
         updated_at:
           type: string
-          example: "2021-08-24 00:42:18.517476+09"
-          description: "azuki が参照する DB 上のデータの更新日時である。"
+          example: '2021-08-24 00:42:18.517476+09'
+          description: azuki が参照する DB 上のデータの更新日時である。
       example:
         - id: 18043
           course_number: GB13312
           course_name: 情報特別演習I
           instructional_type: 2
-          credits: 2.0
-          standard_registration_year: [2]
-          term: [9]
-          period: [随時]
+          credits: 2
+          standard_registration_year:
+            - 2
+          term:
+            - 9
+          period:
+            - 随時
           classroom: null
-          instructor: [多田野, 保國, 面, 他, ""]
-          course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
+          instructor:
+            - 多田野
+            - 保國
+            - 面
+            - 他
+            - ''
+          course_overview: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
           application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
           alt_course_name: Special Exercise in Information Science I
           course_code: GB13312
           course_code_name: 情報特別演習I
-          csv_updated_at: 2021-02-19T01:08:57+09:00
+          csv_updated_at: '2021-02-19T01:08:57+09:00'
           year: 2021
-          created_at: 2021-10-11T17:24:36.647253+09:00
-          updated_at: 2021-10-11T17:24:36.647253+09:00
+          created_at: '2021-10-11T17:24:36.647253+09:00'
+          updated_at: '2021-10-11T17:24:36.647253+09:00'
         - id: 18044
           course_number: GB13322
           course_name: 情報特別演習II
           instructional_type: 2
-          credits: 2.0
-          standard_registration_year: [3]
-          term: [9]
-          period: [随時]
+          credits: 2
+          standard_registration_year:
+            - 3
+          term:
+            - 9
+          period:
+            - 随時
           classroom: null
-          instructor: [多田野, 保國, 面, 他, ""]
-          course_overview: 受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。
+          instructor:
+            - 多田野
+            - 保國
+            - 面
+            - 他
+            - ''
+          course_overview: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
           remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           credited_auditors: 0
           application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
           alt_course_name: Special Exercise in Information Science II
           course_code: GB13322
           course_code_name: 情報特別演習II
-          csv_updated_at: 2021-02-19T01:09:26+09:00
+          csv_updated_at: '2021-02-19T01:09:26+09:00'
           year: 2021
-          created_at: 2021-10-11T17:24:36.647253+09:00
-          updated_at: 2021-10-11T17:24:36.647253+09:00
+          created_at: '2021-10-11T17:24:36.647253+09:00'
+          updated_at: '2021-10-11T17:24:36.647253+09:00'
     facet:
       title: facet
       type: object
-      # required:
-      #   - "term_facet"
       properties:
         term_facet:
-          description: "開講時期ごとの件数"
-          # required:
-          #   - "1"
-          #   - "2"
-          #   - "3"
-          #   - "4"
-          #   - "5"
-          #   - "6"
-          #   - "7"
-          #   - "8"
-          #   - "9"
-          #   - "10"
-          #   - "11"
+          description: 開講時期ごとの件数
           properties:
-            1:
-              type: "number"
+            '1':
+              type: number
               example: 4894
-            2:
-              type: "number"
+            '2':
+              type: number
               example: 5000
-            3:
-              type: "number"
+            '3':
+              type: number
               example: 2692
-            4:
-              type: "number"
+            '4':
+              type: number
               example: 5002
-            5:
-              type: "number"
+            '5':
+              type: number
               example: 5057
-            6:
-              type: "number"
+            '6':
+              type: number
               example: 2689
-            7:
-              type: "number"
+            '7':
+              type: number
               example: 387
-            8:
-              type: "number"
+            '8':
+              type: number
               example: 132
-            9:
-              type: "number"
+            '9':
+              type: number
               example: 2651
-            10:
-              type: "number"
+            '10':
+              type: number
               example: 91
-            11:
-              type: "number"
+            '11':
+              type: number
               example: 69
-          type: "object"
+          type: object
     req:
       type: object
       properties:
         course_number:
           type: string
-          example: "GA119"
+          example: GA119
           description: 科目番号
         course_name:
           type: string
-          example: "情報 特別 演習"
+          example: 情報 特別 演習
           description: 科目名。半角・全角スペース区切りで単語分割。
         instructional_type:
           type: integer
@@ -322,7 +327,7 @@ components:
           description: 講義形式。複数検索
         credits:
           type: string
-          example: "2.0"
+          example: '2.0'
           description: 単位数
         standard_registration_year:
           type: integer
@@ -330,27 +335,27 @@ components:
           description: 標準履修年次
         term:
           type: string
-          example: "春A 春B"
+          example: 春A 春B
           description: 開講時期。半角・全角スペース区切りで単語分割。
         period:
           type: string
-          example: "月1, 月2"
+          example: '月1, 月2'
           description: 開講曜日時間。半角・全角スペース区切りで単語分割。
         classroom:
           type: string
-          example: "3A2"
+          example: 3A2
           description: 教室名。半角・全角スペース区切りで単語分割。先頭一致
         instructor:
           type: string
-          example: "山田"
+          example: 山田
           description: 担当教員名。半角・全角スペース区切りで単語分割。
         course_overview:
           type: string
-          example: "受講生 解法"
+          example: 受講生 解法
           description: 科目概要。半角・全角スペース区切りで単語分割。
         remarks:
           type: string
-          example: "オンデマンド"
+          example: オンデマンド
           description: 備考。半角・全角スペース区切りで単語分割。
         course_name_filter_type:
           type: string
@@ -358,14 +363,14 @@ components:
             - and
             - or
           example: and
-          description: "`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。"
+          description: '`course_name` の各単語をどのように繋げて検索するか。`course_name` を設定しているときにはこのパラメーターも必須である。'
         course_overview_filter_type:
           type: string
           enum:
             - and
             - or
           example: and
-          description: "`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。"
+          description: '`course_overview` の各単語をどのように繋げて検索するか。`course_overview` を設定しているときにはこのパラメーターも必須である。'
         filter_type:
           type: string
           enum:
