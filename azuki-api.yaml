@@ -4,7 +4,7 @@ info:
   version: '0.1'
   description: github.com/sylms/azuki api document
 servers:
-  - url: 'https://sylms-explorer-api.open.coins.tsukuba.ac.jp/course'
+  - url: 'https://sylms-explorer-api.open.coins.tsukuba.ac.jp'
     description: ''
 paths:
   /course:
