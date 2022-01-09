@@ -38,6 +38,29 @@ paths:
 
         例えば、`course_name` に「情報」と指定した場合、科目名に「情報」を含む科目の情報を返します。
         `course_name` と `course_overview` のどちらかはクエリにつける必要があります。
+  /update:
+    post:
+      summary: /update
+      tags:
+        - course
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      operationId: post-update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/course'
+        description: ''
+      description: 科目情報を更新します
+      security:
+        - API Key: []
+    parameters: []
   /facet:
     post:
       summary: /facet
@@ -476,3 +499,8 @@ components:
           description: スキップする件数
   parameters: {}
   responses: {}
+  securitySchemes:
+    API Key:
+      name: API Key
+      type: apiKey
+      in: query
