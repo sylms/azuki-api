@@ -55,7 +55,39 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/course'
+              $ref: '#/components/schemas/courseOne'
+            examples:
+              example-1:
+                value:
+                  id: 18043
+                  course_number: GB13312
+                  course_name: 情報特別演習I
+                  instructional_type: 2
+                  credits: '2.0'
+                  standard_registration_year:
+                    - '2'
+                  term:
+                    - 9
+                  period:
+                    - 随時
+                  classroom: null
+                  instructor:
+                    - 多田野
+                    - 保國
+                    - 面
+                    - 他
+                    - ''
+                  course_overview: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
+                  remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
+                  credited_auditors: 0
+                  application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
+                  alt_course_name: Special Exercise in Information Science I
+                  course_code: GB13312
+                  course_code_name: 情報特別演習I
+                  csv_updated_at: '2021-02-19T01:08:57+09:00'
+                  year: 2021
+                  created_at: '2021-10-11T17:24:36.647253+09:00'
+                  updated_at: '2021-10-11T17:24:36.647253+09:00'
         description: ''
       description: 科目情報を更新します
       security:
@@ -358,6 +390,127 @@ components:
           type: string
           example: '2021-08-24 00:42:18.517476+09'
           description: azuki が参照する DB 上のデータの更新日時である。
+    courseOne:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: number
+        course_number:
+          type: string
+          minLength: 1
+        course_name:
+          type: string
+          minLength: 1
+        instructional_type:
+          type: number
+        credits:
+          type: string
+          minLength: 1
+        standard_registration_year:
+          type: array
+          items:
+            required: []
+            properties: {}
+        term:
+          type: array
+          items:
+            required: []
+            properties: {}
+        period:
+          type: array
+          items:
+            required: []
+            properties: {}
+        classroom: {}
+        instructor:
+          type: array
+          items:
+            required: []
+            properties: {}
+        course_overview:
+          type: string
+          minLength: 1
+        remarks:
+          type: string
+          minLength: 1
+        credited_auditors:
+          type: number
+        application_conditions:
+          type: string
+          minLength: 1
+        alt_course_name:
+          type: string
+          minLength: 1
+        course_code:
+          type: string
+          minLength: 1
+        course_code_name:
+          type: string
+          minLength: 1
+        csv_updated_at:
+          type: string
+          minLength: 1
+        year:
+          type: number
+        created_at:
+          type: string
+          minLength: 1
+        updated_at:
+          type: string
+          minLength: 1
+      required:
+        - id
+        - course_number
+        - course_name
+        - instructional_type
+        - credits
+        - standard_registration_year
+        - term
+        - period
+        - instructor
+        - course_overview
+        - remarks
+        - credited_auditors
+        - application_conditions
+        - alt_course_name
+        - course_code
+        - course_code_name
+        - csv_updated_at
+        - year
+        - created_at
+        - updated_at
+      x-examples:
+        example-1:
+          id: 18043
+          course_number: GB13312
+          course_name: 情報特別演習I
+          instructional_type: 2
+          credits: '2.0'
+          standard_registration_year:
+            - '2'
+          term:
+            - 9
+          period:
+            - 随時
+          classroom: null
+          instructor:
+            - 多田野
+            - 保國
+            - 面
+            - 他
+            - ''
+          course_overview: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
+          remarks: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
+          credited_auditors: 0
+          application_conditions: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
+          alt_course_name: Special Exercise in Information Science I
+          course_code: GB13312
+          course_code_name: 情報特別演習I
+          csv_updated_at: '2021-02-19T01:08:57+09:00'
+          year: 2021
+          created_at: '2021-10-11T17:24:36.647253+09:00'
+          updated_at: '2021-10-11T17:24:36.647253+09:00'
     facet:
       title: facet
       type: object
