@@ -91,7 +91,7 @@ paths:
         description: ''
       description: 科目情報を更新します
       security:
-        - API Key: []
+        - apikey: []
     parameters: []
   /facet:
     post:
@@ -653,7 +653,7 @@ components:
   parameters: {}
   responses: {}
   securitySchemes:
-    API Key:
-      name: API Key
+    apikey:
       type: apiKey
       in: query
+      name: apikey
