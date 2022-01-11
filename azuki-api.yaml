@@ -106,7 +106,7 @@ components:
             - 9
           period:
             - 随時
-          classroom: null
+          classroom: ""
           instructor:
             - 多田野
             - 保國
@@ -135,7 +135,7 @@ components:
             - 9
           period:
             - 随時
-          classroom: null
+          classroom: ""
           instructor:
             - 多田野
             - 保國
@@ -166,7 +166,7 @@ components:
               - 9
             period:
               - 随時
-            classroom: null
+            classroom: ""
             instructor:
               - 多田野
               - 保國
@@ -195,7 +195,7 @@ components:
               - 9
             period:
               - 随時
-            classroom: null
+            classroom: ""
             instructor:
               - 多田野
               - 保國
