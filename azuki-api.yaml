@@ -266,7 +266,6 @@ components:
             春学期 = 10
 
             秋学期 = 11
-          nullable: true
           items:
             type: integer
             example: '[2]'
@@ -279,7 +278,6 @@ components:
         classroom:
           type: string
           description: 教室である。
-          nullable: true
         instructor:
           type: array
           description: 担当教員である。
@@ -289,12 +287,10 @@ components:
           type: string
           example: '受講生の自主的なテーマ設定および解法設計を重視した演習を行う。発案力,実現力,表現力を養うことを目的とする。'
           description: 授業概要である。
-          nullable: true
         remarks:
           type: string
           example: 情報科学類生に限る。 オンライン(オンデマンド型) オンライン(同時双方向型) 対面
           description: 備考である。
-          nullable: true
         credited_auditors:
           type: integer
           example: 0
@@ -303,22 +299,18 @@ components:
           type: string
           example: 施設設備の許容量上の制約と学類生に対する良質の少人数教育を行うため
           description: 申請条件である。
-          nullable: true
         alt_course_name:
           type: string
           example: Special Exercise in Information Science I
           description: 英語(日本語)科目名である。
-          nullable: true
         course_code:
           type: string
           example: GB13312
           description: 科目コードである。
-          nullable: true
         course_code_name:
           type: string
           example: 情報特別演習I
           description: 要件科目名である。
-          nullable: true
         csv_updated_at:
           type: string
           example: '2021-03-23 11:43:50+09'
