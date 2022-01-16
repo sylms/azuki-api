@@ -161,7 +161,7 @@ paths:
                       - 20220108031719
                       - 20220111052405
       operationId: get-wacz-diff-timestamps
-      description: WACZ ファイルに保存されているある URL のアーカイブのタイムスタンプたちを取得します。
+      description: ある URL について保存されているアーカイブのタイムスタンプを取得します。
       parameters:
         - schema:
             type: string
