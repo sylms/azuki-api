@@ -89,6 +89,86 @@ paths:
             examples: {}
       description: |
         CSV をダウンロード
+  /wacz-diff/diff:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples: {}
+      operationId: get-wacz-diff-diff
+      description: ある URL の 2 つのタイムスタンプ間のレスポンスボディの差分を取得します。
+      parameters:
+        - schema:
+            type: string
+            example: 'https://kdb.tsukuba.ac.jp/syllabi/2021/GB13312/jpn/'
+          in: query
+          name: url
+          description: 対象の URL
+          required: true
+        - schema:
+            type: integer
+            example: 20220108031719
+          in: query
+          name: from
+          description: タイムスタンプ（from）
+          required: true
+        - schema:
+            type: string
+            example: '20220111052405'
+          in: query
+          name: to
+          description: タイムスタンプ（to）
+          required: true
+  /wacz-diff/timestamps:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    url: 'https://kdb.tsukuba.ac.jp/syllabi/2021/GB13312/jpn/'
+                    timestamps:
+                      - 20220108031719
+                      - 20220111052405
+                properties:
+                  url:
+                    type: string
+                  timestamps:
+                    type: array
+                    items:
+                      type: integer
+                required:
+                  - url
+                  - timestamps
+              examples:
+                example:
+                  value:
+                    url: 'https://kdb.tsukuba.ac.jp/syllabi/2021/GB13312/jpn/'
+                    timestamps:
+                      - 20220108031719
+                      - 20220111052405
+      operationId: get-wacz-diff-timestamps
+      description: WACZ ファイルに保存されているある URL のアーカイブのタイムスタンプたちを取得します。
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: url
+          description: 対象の URL
+          required: true
 components:
   schemas:
     course:
@@ -106,7 +186,7 @@ components:
             - 9
           period:
             - 随時
-          classroom: ""
+          classroom: ''
           instructor:
             - 多田野
             - 保國
@@ -135,7 +215,7 @@ components:
             - 9
           period:
             - 随時
-          classroom: ""
+          classroom: ''
           instructor:
             - 多田野
             - 保國
@@ -166,7 +246,7 @@ components:
               - 9
             period:
               - 随時
-            classroom: ""
+            classroom: ''
             instructor:
               - 多田野
               - 保國
@@ -195,7 +275,7 @@ components:
               - 9
             period:
               - 随時
-            classroom: ""
+            classroom: ''
             instructor:
               - 多田野
               - 保國
