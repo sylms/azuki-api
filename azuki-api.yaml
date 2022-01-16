@@ -120,7 +120,7 @@ paths:
           description: タイムスタンプ（from）
           required: true
         - schema:
-            type: string
+            type: integer
             example: '20220111052405'
           in: query
           name: to
