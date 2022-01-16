@@ -92,7 +92,8 @@ paths:
   /wacz-diff/diff:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - wacz-diff
       responses:
         '200':
           description: OK
@@ -128,7 +129,8 @@ paths:
   /wacz-diff/timestamps:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - wacz-diff
       responses:
         '200':
           description: OK
